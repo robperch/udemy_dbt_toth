@@ -1,3 +1,10 @@
+{{
+    config(
+        materialized='view',
+        on_schema_change='fail'
+    )
+}}
+
 with src_listings as (
     select
         *
