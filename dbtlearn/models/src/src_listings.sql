@@ -2,7 +2,7 @@ with raw_listings as (
     select
         *
     from
-        AIRBNB.RAW.RAW_LISTINGS
+        {{ source('airbnb', 'listings') }}
 )
 
 select
