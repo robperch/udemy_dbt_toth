@@ -3,6 +3,7 @@ version: 2
 models:
 
   - name: dim_listings_cleansed
+
     columns:
 
       - name: listing_id
@@ -26,3 +27,7 @@ models:
                   'Shared room',
                   'Hotel room'
               ]
+
+      - name: minimum_nights
+        tests:
+          - positive_value
