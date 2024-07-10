@@ -3,15 +3,18 @@ version: 2
 models:
 
   - name: dim_listings_cleansed
+    description: Cleansed Airbnb listings data
 
     columns:
 
       - name: listing_id
+        description: Primary key for the listings
         tests:
           - unique
           - not_null
 
       - name: host_id
+        description: host id that references the host table
         tests:
           - not_null
           - relationships:
@@ -19,6 +22,7 @@ models:
               field: host_id
 
       - name: room_type
+        description: Type of appartment/room
         tests:
           - accepted_values:
               values: [
