@@ -33,5 +33,6 @@ models:
               ]
 
       - name: minimum_nights
+        description: ' {{doc ("dim_listing_cleansed__minimum_nights") }}'
         tests:
           - positive_value
