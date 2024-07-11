@@ -32,8 +32,8 @@ models:
         tests:
           - positive_value
 
-  - name: dim_listings_cleansed
-    description: Cleansed Airbnb listings data
+  - name: dim_hosts_cleansed
+    description: Cleansed Airbnb hosts data
     columns:
       - name: host_id
         description: The id of the host. This is the primary key.
