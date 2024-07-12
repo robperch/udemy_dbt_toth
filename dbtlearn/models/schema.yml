@@ -49,3 +49,11 @@ models:
         tests:
           - accepted_values:
               values: [ 't', 'f' ]
+
+  - name: dim_listings_with_hosts
+    description: table that joins cleaned versions of listings and hosts
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: source('airbnb', 'listings')
+
+
