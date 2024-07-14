@@ -1,5 +1,5 @@
 {% macro learn_logging() %}
 
-    {{ log("Call Roberto P. for help! :D") }}
+    {{ log("Call 01-800 for help! :D", info=True) }}
 
 {% endmacro %}
