@@ -27,5 +27,17 @@ where
 
 -- Condition to only add entries with a more recent date than the most recent in the table
 {% if is_incremental() %}
-    and review_date > (select max(review_date) from {{ this }})
+
+    -- This first line checks for the existence of the start_date and end_date variables
+    {% if var("start_date", False) and var("start_date", False) %}
+        { log('Loading ' ~ this ~ ' incrementally (start date: ' ~ var('start_date') ~ ')' ~ '(end date: ' ~ var('end_date') ~ ')'), info=True }
+        and review_date >= '{{ var('start_date') }}'
+        and review_date < '{{ var('end_date') }}'
+
+    {% else %}
+        and review_date > (select max(review_date) from {{ this }})
+        {{ log('Loading ' ~ this ~ ' incrementally (all missing dates)'), info=True }}
+
+    {% endif %}
+
 {% endif %}
